@@ -38,7 +38,6 @@ def run():
 
         dataframe['Gross Margin'] = (dataframe['Gross Profit'] / dataframe['Total Revenue']) * 100
         dataframe['Operating Margin'] = ((dataframe['Total Revenue'] - dataframe['Operating Expense']) / dataframe['Total Revenue']) * 100
-        dataframe['Profit Margin'] = dataframe['Total Revenue'] - dataframe['Cost Of Revenue']
         # dataframe['Profit Margin'] = ((dataframe['Gross Profit'] - dataframe['Operating Expense'] - dataframe['Interest Expense'] - dataframe['Income Tax Expense']) / dataframe['Total Revenue']) * 100
         # dataframe['ROA'] = ((dataframe['Profit Margin'] * dataframe['Total Assets']) / dataframe['Total Revenue'])
         # dataframe['ROE'] = ((dataframe['Profit Margin'] * dataframe['Total Assets']) / (dataframe['Total Liabilities'] + dataframe['Total Revenue']))
