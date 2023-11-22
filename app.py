@@ -38,9 +38,9 @@ def run():
 
         dataframe['Gross Margin'] = (dataframe['Gross Profit'] / dataframe['Total Revenue']) * 100
         dataframe['Operating Margin'] = ((dataframe['Total Revenue'] - dataframe['Operating Expense']) / dataframe['Total Revenue']) * 100
-        # dataframe['Profit Margin'] = ((dataframe['Gross Profit'] - dataframe['Operating Expense'] - dataframe['Interest Expense'] - dataframe['Income Tax Expense']) / dataframe['Total Revenue']) * 100
-        # dataframe['ROA'] = ((dataframe['Profit Margin'] * dataframe['Total Assets']) / dataframe['Total Revenue'])
-        # dataframe['ROE'] = ((dataframe['Profit Margin'] * dataframe['Total Assets']) / (dataframe['Total Liabilities'] + dataframe['Total Revenue']))
+        dataframe['Profit Margin'] = ((dataframe['Gross Profit'] - dataframe['Operating Expense'] - dataframe['Interest Expense'] - dataframe['Tax Provision']) / dataframe['Total Revenue']) * 100
+        # dataframe['ROA'] = ((dataframe['Profit Margin'] * dataframe['Impairment Of Capital Assets']) / dataframe['Total Revenue'])
+        # dataframe['ROE'] = ((dataframe['Profit Margin'] * dataframe['Impairment Of Capital Assets']) / (dataframe['Total Liabilities'] + dataframe['Total Revenue']))
         # dataframe['ROA'] = ((dataframe['Profit Margin'] * dataframe['Total Assets']) / dataframe['Total Revenue'])
         # dataframe['ROE'] = ((dataframe['Profit Margin'] * dataframe['Total Assets']) / (dataframe['Total Liabilities'] + dataframe['Total Revenue']))
         # dataframe['Current Ratio'] = dataframe['Total Assets'] / dataframe['Total Liabilities']
@@ -129,7 +129,7 @@ def run():
 
         # ------------------------------ CHARTS ------------------------------ 
         st.subheader('Comparison of Selected Financial Ratios Graph 1')
-        st.area_chart(dataframe, x='Date', y=['Gross Margin', 'Operating Margin'], color=["#45c8a3", "#e65100"], height=600)
+        st.area_chart(dataframe, x='Date', y=['Profit Margin', 'Gross Margin', 'Operating Margin'], color=["#45c8a3", "#e65100", "#7a2e9b"], height=600)
         # st.line_chart(dataframe, x='Date', y=['Profit Margin', 'Gross Margin', 'Operating Margin', "ROA"], color=["#7a2e9b", "#45c8a3", "#e65100", "#2f4b7c"], height=600)
 
         # st.subheader('Comparison of Selected Financial Ratios Graph 2')
