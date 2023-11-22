@@ -8,18 +8,16 @@ LOGGER = get_logger(__name__)
 
 def run():
     income_statements_path = 'income_statements.json'
-
     with open(income_statements_path, 'r') as file:
         income_statements = json.load(file)
-
     income_indices = []
     income_statements_data = []
-
     for index, statements in income_statements.items():
         income_indices.append(index)
         income_statements_data.append(statements)
-
+        
     st.header('Financial Ratio Analysis')
+
     index = st.selectbox('Select market index symbol', income_indices)
     income_statement = income_statements_data[income_indices.index(index)]
 
@@ -58,6 +56,8 @@ def run():
         # dataframe['Operating Cycle'] = dataframe['Days in Account Receivables'] + dataframe['Days in Inventories']
         # dataframe['Total Asset Turnover'] = dataframe['Total Revenue'] / dataframe['Total Assets']
 
+
+        # # ------------------------------ RAIO RANGE TABLE ------------------------------
         # Ratio Ranges data
         ranges = {
             'Profit_Margin': [(10, float('inf')), (3, 10), (0, 3)],
@@ -101,7 +101,7 @@ def run():
         st.table(range_table_data)
 
 
-        # # ------- AVERAGE RAIO TABLE ---------
+        # # ------------------------------ AVERAGE RAIO TABLE ------------------------------
         # avg_table_data = []
 
         # # Calculate the overall average ratios
@@ -128,6 +128,7 @@ def run():
         # st.table(avg_table_data)
 
 
+        # ------------------------------ CHARTS ------------------------------ 
         st.subheader('Comparison of Selected Financial Ratios Graph 1')
         st.area_chart(dataframe, x='Date', y=['Gross Margin', 'Operating Margin'], color=["#45c8a3", "#e65100"], height=600)
         # st.line_chart(dataframe, x='Date', y=['Profit Margin', 'Gross Margin', 'Operating Margin', "ROA"], color=["#7a2e9b", "#45c8a3", "#e65100", "#2f4b7c"], height=600)
